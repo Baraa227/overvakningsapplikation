@@ -2,9 +2,10 @@
 
 import psutil
 from monitor import list_active_monitoring
-
+from alarms import create_alarms
 monitor_active = False
 menu_is_running = True
+alarms = []
 
 while menu_is_running:
         print("\nMeny:")
@@ -26,8 +27,7 @@ while menu_is_running:
             list_active_monitoring(monitor_active)
 
         elif menu_choice == "3":
-            print("Skapar larm")
-            input("Tryck på Enter för att återgå till menyn.")
+            create_alarms(alarms)
 
         elif menu_choice == "4":
             print("Visar larm")
@@ -47,4 +47,7 @@ while menu_is_running:
             print("Skriv ett nummer, tack!")
             continue
 
-print("Välkommen till övervakningsapplikationen!")
+print("Välkommen åter!")
+
+
+
