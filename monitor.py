@@ -13,4 +13,6 @@ def list_active_monitoring(monitoring_active):
         print(f"Minnesanvändning: {memory.percent}%")
         print(f"Diskanvändning: {disk.percent}%")
 
-    input("Tryck på Enter för att återgå till menyn.")
+    input("Tryck på Enter för att bekräfta ")
+    print("Du har bekräftat ")
+    input("Tryck på Enter för att återgå till meny ")
