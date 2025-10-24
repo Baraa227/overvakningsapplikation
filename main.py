@@ -1,7 +1,7 @@
 #Huvudprogram
 
 import psutil
-from monitor import list_active_monitoring
+from monitor import list_active_monitoring, monitoring_mode
 from alarms import load_alarms, create_alarms, show_alarms
 monitor_active = False
 menu_is_running = True
@@ -35,6 +35,7 @@ while menu_is_running:
             show_alarms(alarms_list)
 
         elif menu_choice == "5":
+            monitoring_mode(alarms_list)
             print("Startar övervakningsläge")
             input("Tryck på Enter för att återgå till menyn.")
 
