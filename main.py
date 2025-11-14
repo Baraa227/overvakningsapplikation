@@ -1,11 +1,11 @@
 #Huvudprogram
 
 import psutil
-from monitor import list_active_monitoring
-from alarms import create_alarms
+from monitor import list_active_monitoring, monitoring_mode
+from alarms import load_alarms, create_alarms, show_alarms
 monitor_active = False
 menu_is_running = True
-alarms = []
+alarms_list = load_alarms()
 
 while menu_is_running:
         print("\nMeny:")
@@ -20,19 +20,22 @@ while menu_is_running:
 
         if menu_choice == "1":
             monitor_active = True
-            print("Startar övervakning...")
-            input("Tryck på Enter för att återgå till menyn.")
+            print("Startar övervakning av CPU användning, minnesanvändning och diskanvändning. ")
+            input("Tryck på Enter för att återgå till meny ")
 
         elif menu_choice == "2":
             list_active_monitoring(monitor_active)
 
+
         elif menu_choice == "3":
-            create_alarms(alarms)
+            create_alarms(alarms_list)
 
         elif menu_choice == "4":
             print("Visar larm")
+            show_alarms(alarms_list)
 
         elif menu_choice == "5":
+            monitoring_mode(alarms_list)
             print("Startar övervakningsläge")
             input("Tryck på Enter för att återgå till menyn.")
 
